@@ -1,0 +1,35 @@
+[project]
+name = "imgr-backend"
+version = "0.1.0"
+description = "SAM-based mask generation API"
+requires-python = ">=3.9"
+dependencies = [
+    # FastAPI
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    "python-multipart>=0.0.12",
+
+    # Image processing
+    "pillow>=11.3.0",
+    "numpy>=1.24.0",
+    "opencv-python>=4.8.0",
+    "scipy>=1.13.1",
+
+    # SAM
+    "segment-anything @ git+https://github.com/facebookresearch/segment-anything.git",
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.0",
+    "httpx>=0.28.0",  # For testing FastAPI
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
